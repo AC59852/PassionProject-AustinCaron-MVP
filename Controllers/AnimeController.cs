@@ -125,8 +125,9 @@ namespace PassionProject_AustinCaron_MVP.Controllers
         // GET: Anime/DeleteConfirm/5
         public ActionResult DeleteConfirm(int id)
         {
-            string url = "animedata/findanime" + id;
+            string url = "animedata/findanime/" + id;
             HttpResponseMessage response = client.GetAsync(url).Result;
+
             AnimeDto selectedanime = response.Content.ReadAsAsync<AnimeDto>().Result;
 
             return View(selectedanime);

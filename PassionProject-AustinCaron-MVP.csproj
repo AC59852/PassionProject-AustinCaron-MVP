@@ -283,6 +283,7 @@
     <Content Include="Views\Anime\New.cshtml" />
     <Content Include="Views\Anime\Error.cshtml" />
     <Content Include="Views\Anime\Edit.cshtml" />
+    <Content Include="Views\Anime\DeleteConfirm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,7 +3,7 @@
     ViewBag.Title = "DeleteConfirm";
 }
 
-<h2>Do you want to delete @Model.CharacterName ?</h2>
+<h2>Do you want to delete @Model.CharacterName?</h2>
 <a href="/Character/Details/@Model.CharacterId">Back to @Model.CharacterName</a>
 <p>@Model.CharacterBio</p>
 <form action="/Character/Delete/@Model.CharacterId" method="POST">
