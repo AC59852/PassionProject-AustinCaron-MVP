@@ -1,0 +1,64 @@
+﻿@model PassionProject_AustinCaron_MVP.Models.ViewModels.UpdateCharacter
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update @Model.SelectedCharacter.CharacterName</h2>
+<form action="/Character/Update/@Model.SelectedCharacter.CharacterId" method="POST">
+    <div style="display: none;">
+        <input type="text" name="CharacterId" value="@Model.SelectedCharacter.CharacterId" />
+    </div>
+    <div>
+        <label>Character Name:</label>
+        <input type="text" name="CharacterName" value="@Model.SelectedCharacter.CharacterName" />
+    </div>
+    <div>
+        <label>Character Bio:</label>
+        <textarea name="CharacterBio">@Model.SelectedCharacter.CharacterBio</textarea>
+    </div>
+    <div>
+        <label>Character Age:</label>
+        <input type="number" name="CharacterAge" value="@Model.SelectedCharacter.CharacterAge" />
+    </div>
+    <div>
+        <label>Character Height:</label>
+        <input type="text" name="CharacterHeight" value="@Model.SelectedCharacter.CharacterHeight" />
+    </div>
+    <div>
+        <label>Character Weight:</label>
+        <input type="number" name="CharacterWeight" value="@Model.SelectedCharacter.CharacterWeight" />
+    </div>
+    <div>
+        <label>Character Affiliation:</label>
+        <input type="text" name="CharacterAffiliation" value="@Model.SelectedCharacter.CharacterAffiliation" />
+    </div>
+    <div>
+        <label>Character Icon:</label>
+        <input type="text" name="CharacterIcon" value="@Model.SelectedCharacter.CharacterIcon" />
+    </div>
+    <div>
+        <label>Character Image:</label>
+        <input type="text" name="CharacterImage" value="@Model.SelectedCharacter.CharacterImage" />
+    </div>
+    <div>
+        <label>Character Background Image:</label>
+        <input type="text" name="CharacterBck" value="@Model.SelectedCharacter.CharacterBck" />
+    </div>
+    <div>
+        <label>Anime Id:</label>
+        <select name="AnimeId">
+            @foreach (var anime in Model.AnimeOptions)
+            {
+                string selected = "";
+                if (anime.AnimeId == Model.SelectedCharacter.AnimeId)
+                {
+                    selected = "selected";
+                }
+                <option value="@anime.AnimeId" @selected>@anime.AnimeName</option>
+            }
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Update" />
+    </div>
+</form>

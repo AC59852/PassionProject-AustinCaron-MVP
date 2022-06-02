@@ -1,0 +1,12 @@
+﻿@model IEnumerable<PassionProject_AustinCaron_MVP.Models.CharacterDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+@foreach(var character in Model)
+{
+    <a href="/character/details/@character.CharacterId"><h2>Name: @character.CharacterName</h2></a>
+    <h3>Anime: @character.AnimeName</h3>
+}
+

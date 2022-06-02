@@ -1,0 +1,12 @@
+﻿@model IEnumerable<PassionProject_AustinCaron_MVP.Models.AnimeDto>
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Animes:</h2>
+<a href="/Anime/New">New Anime</a>
+@foreach(var Anime in Model)
+{
+    <h2><a href="/Anime/Details/@Anime.AnimeId">@Anime.AnimeName</a></h2>
+    <div>@Anime.AnimeAbbr</div>
+}

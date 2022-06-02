@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New Anime</h2>
+<form action="/Anime/Create" method="POST">
+    <div>
+        <label>Name</label>
+        <input type="text" name="AnimeName" />
+    </div>
+    <div>
+        <label>Description</label>
+        <input type="text" name="AnimeDescription" />
+    </div>
+    <div>
+        <label>Abbreviation</label>
+        <input type="text" name="AnimeAbbr" />
+    </div>
+    <div>
+        <label>Icon</label>
+        <input type="text" name="AnimeIcon" />
+    </div>
+    <div>
+        <label>Background Image</label>
+        <input type="text" name="AnimeBck" />
+    </div>
+    <div>
+        <input type="submit" value="Create Anime" />
+    </div>
+</form>
+

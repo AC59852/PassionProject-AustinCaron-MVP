@@ -1,0 +1,13 @@
+﻿@model PassionProject_AustinCaron_MVP.Models.ViewModels.DetailsCharacter
+@{
+    ViewBag.Title = "Details";
+}
+<a href="/anime/details/@Model.SelectedCharacter.AnimeId">Back to @Model.SelectedCharacter.AnimeName</a>
+<h2>@Model.SelectedCharacter.CharacterName</h2>
+<p>@Model.SelectedCharacter.CharacterBio</p>
+<h3>Quick Info</h3>
+<div>@Model.SelectedCharacter.CharacterHeight</div>
+<div>@Model.SelectedCharacter.CharacterWeight</div>
+<div>@Model.SelectedCharacter.CharacterAffiliation</div>
+
+

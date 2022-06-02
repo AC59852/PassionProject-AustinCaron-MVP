@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PassionProject_AustinCaron_MVP.Models.AnimeDto>
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create Character</h2>
+<form action="/Character/Create" method="POST">
+    <div>
+        <label>Character Name</label>
+        <input type="text" name="CharacterName" value="" />
+    </div>
+    <div>
+        <label>Character Bio</label>
+        <textarea name="CharacterBio"></textarea>
+    </div>
+    <div>
+        <label>Character Age (Years)</label>
+        <input type="number" name="CharacterAge" value="" />
+    </div>
+    <div>
+        <label>Character Weight (lbs)</label>
+        <input type="number" name="CharacterWeight" value="" />
+    </div>
+    <div>
+        <label>Character Height (ft and in)</label>
+        <input type="text" name="CharacterHeight" value="" />
+    </div>
+    <div>
+        <label>Character Affiliation</label>
+        <input type="text" name="CharacterAffiliation" value="" />
+    </div>
+    <div>
+        <label>Character Icon</label>
+        <input type="text" name="CharacterIcon" value="" />
+    </div>
+    <div>
+        <label>Character Image</label>
+        <input type="text" name="CharacterImage" value="" />
+    </div>
+    <div>
+        <label>Character Background</label>
+        <input type="text" name="CharacterBck" value="" />
+    </div>
+    <div>
+        <label>Anime</label>
+        <select name="AnimeId">
+            @foreach (var anime in Model)
+            {
+                <option value="@anime.AnimeId">@anime.AnimeName</option>
+            }
+        </select>
+    </div>
+    <input type="submit" value="Add Character" />
+</form>
