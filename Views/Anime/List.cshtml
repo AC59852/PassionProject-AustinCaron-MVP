@@ -5,14 +5,91 @@
 
 <main>
     <h2>Anime:</h2>
-    <ul class="anime__icons">
-        @foreach (var Anime in Model)
-        {
-            <li>
-                <img src="@Anime.AnimeIcon" alt="Small Clickable Icon of @Anime.AnimeName" />
-                <a href="/Anime/Details/@Anime.AnimeId">@Anime.AnimeAbbr</a>
-            </li>
-        }
-    </ul>
-    <a href="/Anime/New">Add New <img src="~/Content/Images/chevron-right.svg" alt="Add a New Anime" /></a>
+    <div class="anime__wrapper">
+        <div class="anime__icons">
+            @foreach (var Anime in Model)
+            {
+             <a href="/Anime/Details/@Anime.AnimeId" class="anime__icon">
+               <img src="@Anime.AnimeIcon" alt="Small Clickable Icon of @Anime.AnimeName" />
+               <h3>@Anime.AnimeAbbr</h3>
+             </a>
+            }
+        </div>
+        <a href="/Anime/New" class="anime__newBtn">Add New <img src="~/Content/Images/chevron-right.svg" alt="Add a New Anime" /></a>
+    </div>
 </main>
+<style>
+    .anime__wrapper {
+        max-width: 807px;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .anime__icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 35px;
+    }
+
+    .anime__icon {
+        position: relative;
+        width: 210px;
+        height: 210px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .anime__icon img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        object-fit: cover;
+        transform: scale(1);
+        filter: brightness(0.65);
+        border-radius: 20px;
+        z-index: -1;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .anime__icon {
+        font-family: "IBM Plex Sans";
+        color: white;
+        text-decoration: none;
+        font-size: 68px;
+        letter-spacing: 5px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+
+    .anime__icon:hover.anime__icon img {
+        transform: scale(1.1);
+    }
+
+    .anime__newBtn {
+        position: absolute;
+        bottom: 40px;
+        right: 50px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 18px;
+        gap: 10px;
+        padding-bottom: 6px;
+        border-bottom: solid 3px transparent;
+        transition: border-bottom 0.3s ease;
+    }
+
+    .anime__newBtn:hover { border-bottom: 3px solid white }
+
+    .anime__newBtn img {
+        filter: invert(1);
+    }
+</style>
