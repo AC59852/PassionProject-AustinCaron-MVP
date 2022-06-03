@@ -1,21 +1,23 @@
 ﻿@model PassionProject_AustinCaron_MVP.Models.ViewModels.DetailsAnime
+
 @{
     ViewBag.Title = Model.SelectedAnime.AnimeName + " " + "Details";
 }
-<main class="anime" style="background-image: url(@Model.SelectedAnime.AnimeBck)">
+<main class="anime">
+    <div class="anime__img">
+        <img src="@Model.SelectedAnime.AnimeBck" alt="Alternate Text" />
+    </div>
     <section class="anime__content">
         <div class="anime__logo">
             <img src="@Model.SelectedAnime.AnimeLogo" alt="Alternate Text" />
         </div>
         <div class="anime__text">
             <h1 class="anime__title">@Model.SelectedAnime.AnimeName</h1>
-            <div class="anime__para">
-                <p>@Model.SelectedAnime.AnimeDescription</p>
-            </div>
+            <p class="anime__para anime__para-1"></p>
+            <p class="anime__para anime__para-2"></p>
         </div>
     </section>
     <nav class="anime__characters">
-        <h2>Anime Characters:</h2>
         @foreach (var character in Model.RelatedCharacters)
         {
             <ul class="anime__nav">
@@ -26,4 +28,129 @@
         }
     </nav>
 </main>
+<script type="text/javascript">
+    let text = '@Model.SelectedAnime.AnimeDescription',
+        para1 = document.querySelector(".anime__para-1"),
+        para2 = document.querySelector(".anime__para-2");
+
+        text = text.replaceAll("&#39;", "'")
+
+    // Split the model content into 2 paragraphs.
+    // The function takes 2 arguements: text (the content), and numWords(number of words to split at)
+    const splitWords = (text, numWords) => {
+        const words = text.split(' ')
+        let part1 = '', part2 = '';
+
+        words.forEach((word, idx) => {
+            if (idx < numWords) {
+                part1 += ' ' + word;
+            } else {
+                part2 += ' ' + word;
+            }
+        })
+
+        // Remove any whitespace
+        return [part1.trim() + '...', part2.trim()]
+    }
+
+    let [part1, part2] = splitWords(text, 60);
+
+    para1.textContent = part1;
+    para2.textContent = part2;
+</script>
+<style>
+    .anime__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        filter: brightness(0.7);
+        overflow: hidden;
+    }
+
+        .anime__img img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+    .anime__content {
+        width: 600px;
+        position: relative;
+        top: 60px;
+        left: 120px;
+    }
+
+    .anime__text {
+        background: rgba(17, 17, 17, 0.8);
+        padding: 50px 0;
+        border-radius: 20px;
+        font-family: "Barlow";
+        color: white;
+    }
+
+    .anime__logo {
+        margin-bottom: 60px;
+    }
+
+    .anime__title, .anime__para {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .anime__title {
+        font-size: 36px;
+        font-weight: 700;
+    }
+
+    .anime__para {
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 150%;
+    }
+
+    .anime__para-1 {
+        margin: 20px auto;
+    }
+
+    .anime__characters {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 100px;
+    }
+
+    .anime__item {
+        margin: 50px 0;
+        position: relative;
+    }
+
+    .anime__item::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 130%;
+        transform: translateY(-50%) scaleY(1);
+        background: white;
+        width: 40px;
+        height: 2px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .anime__item:hover::after {
+        transform: scaleY(2.4);
+    }
+
+    .anime__link {
+        color: white;
+        text-decoration: none;
+        font-family: 'Barlow', sans-serif;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 0.8px;
+    }
+</style>
 
