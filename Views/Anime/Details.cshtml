@@ -1,14 +1,29 @@
 ﻿@model PassionProject_AustinCaron_MVP.Models.ViewModels.DetailsAnime
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Model.SelectedAnime.AnimeName + " " + "Details";
 }
-
-<h1>@Model.SelectedAnime.AnimeName</h1>
-<div>
-    <h2>Anime Characters:</h2>
-    @foreach(var character in Model.RelatedCharacters)
+<main class="anime" style="background-image: url(@Model.SelectedAnime.AnimeBck)">
+    <section class="anime__content">
+        <div class="anime__logo">
+            <img src="@Model.SelectedAnime.AnimeLogo" alt="Alternate Text" />
+        </div>
+        <div class="anime__text">
+            <h1 class="anime__title">@Model.SelectedAnime.AnimeName</h1>
+            <div class="anime__para">
+                <p>@Model.SelectedAnime.AnimeDescription</p>
+            </div>
+        </div>
+    </section>
+    <nav class="anime__characters">
+        <h2>Anime Characters:</h2>
+        @foreach (var character in Model.RelatedCharacters)
         {
-            <a href="/Character/Details/@character.CharacterId"><h3>@character.CharacterName</h3></a>
+            <ul class="anime__nav">
+                <li class="anime__item">
+                    <a href="/Character/Details/@character.CharacterId" class="anime__link">@character.CharacterName</a>
+                </li>
+            </ul>
         }
-</div>
+    </nav>
+</main>
 

@@ -3,42 +3,142 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=IBM+Plex+Sans:wght@700&display=swap" rel="stylesheet">
+    <title>@ViewBag.Title | Toksan Wiki</title>
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__logo">
+                <a href="/">
+                    <img src="~/Content/Images/logo.svg" alt="Toksan Anime Logo" />
+                    <h1>Toksan Wiki</h1>
+                </a>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+            <ul class="nav__list">
+                <li><a href="/">Anime</a></li>
+                <li><a href="/Character/List">Characters</a></li>
                 @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+            </ul>
+        </nav>
+    </header>
+    <div>
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>
+<style>
+    /* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+
+    body {
+        line-height: 1;
+    }
+
+    ol, ul {
+        list-style: none;
+    }
+
+    blockquote, q {
+        quotes: none;
+    }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        background: #111111;
+    }
+
+    .header {
+        position: relative;
+        width: 100%;   
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        width: 95%;
+        margin: 0 auto;
+        padding: 35px 0;
+    }
+
+    .nav__list {
+        display: flex;
+        gap: 22px;
+        font-family: "IBM Plex Sans", sans-serif;
+    }
+
+    .nav__list li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+    .nav__logo a { 
+        display: flex;
+        align-items: center;
+        gap: 17px;
+        text-decoration: none;
+    }
+
+    .nav__logo a img {
+        width: 80px;
+        filter: invert(1);
+    }
+
+    .nav__logo a h1::before {
+        content: "|";
+        margin-right: 12px;
+    }
+
+    .nav__logo a h1 {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 24px;
+        color: white;
+    }
+</style>

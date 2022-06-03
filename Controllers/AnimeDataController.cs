@@ -51,6 +51,7 @@ namespace PassionProject_AustinCaron_MVP.Controllers
                 AnimeDescription = Anime.AnimeDescription,
                 AnimeAbbr = Anime.AnimeAbbr,
                 AnimeBck = Anime.AnimeBck,
+                AnimeLogo = Anime.AnimeLogo,
             };
 
             if(Anime == null)
