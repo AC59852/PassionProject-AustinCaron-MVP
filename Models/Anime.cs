@@ -20,6 +20,8 @@ namespace PassionProject_AustinCaron_MVP.Models
         public string AnimeIcon { get; set; }
 
         public string AnimeBck { get; set; }
+
+        public string AnimeLogo { get; set; }
     }
 
     public class AnimeDto
@@ -35,6 +37,8 @@ namespace PassionProject_AustinCaron_MVP.Models
         public string AnimeIcon { get; set; }
 
         public string AnimeBck { get; set; }
+
+        public string AnimeLogo { get; set; }
     }
 
 

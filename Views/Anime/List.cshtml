@@ -1,12 +1,18 @@
 ﻿@model IEnumerable<PassionProject_AustinCaron_MVP.Models.AnimeDto>
 @{
-    ViewBag.Title = "List";
+    ViewBag.Title = "Anime";
 }
 
-<h2>Animes:</h2>
-<a href="/Anime/New">New Anime</a>
-@foreach(var Anime in Model)
-{
-    <h2><a href="/Anime/Details/@Anime.AnimeId">@Anime.AnimeName</a></h2>
-    <div>@Anime.AnimeAbbr</div>
-}
+<main>
+    <h2>Anime:</h2>
+    <ul class="anime__icons">
+        @foreach (var Anime in Model)
+        {
+            <li>
+                <img src="@Anime.AnimeIcon" alt="Small Clickable Icon of @Anime.AnimeName" />
+                <a href="/Anime/Details/@Anime.AnimeId">@Anime.AnimeAbbr</a>
+            </li>
+        }
+    </ul>
+    <a href="/Anime/New">Add New <img src="~/Content/Images/chevron-right.svg" alt="Add a New Anime" /></a>
+</main>

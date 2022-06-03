@@ -203,6 +203,10 @@
     <Compile Include="Migrations\202206021831165_animecharacterupdate.designer.cs">
       <DependentUpon>202206021831165_animecharacterupdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206030805205_animelogo.cs" />
+    <Compile Include="Migrations\202206030805205_animelogo.designer.cs">
+      <DependentUpon>202206030805205_animelogo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Anime.cs" />
@@ -220,6 +224,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\chevron-right.svg" />
+    <Content Include="Content\Images\logo.svg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -310,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206021831165_animecharacterupdate.resx">
       <DependentUpon>202206021831165_animecharacterupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206030805205_animelogo.resx">
+      <DependentUpon>202206030805205_animelogo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
