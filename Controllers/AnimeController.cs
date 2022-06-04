@@ -79,13 +79,8 @@ namespace PassionProject_AustinCaron_MVP.Controllers
             content.Headers.ContentType.MediaType = "application/json";
 
             HttpResponseMessage response = client.PostAsync(url, content).Result;
-            if(response.IsSuccessStatusCode)
-            {
-                return RedirectToAction("List");
-            } else
-            {
-                return RedirectToAction("Error");
-            }
+
+            return RedirectToAction("List");
         }
 
         // GET: Anime/Edit/5

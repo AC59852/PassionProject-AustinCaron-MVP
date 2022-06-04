@@ -70,6 +70,9 @@ namespace PassionProject_AustinCaron_MVP.Controllers
                 CharacterWeight = Character.CharacterWeight,
                 CharacterAge = Character.CharacterAge,
                 CharacterBck = Character.CharacterBck,
+                CharacterFontRatio = Character.CharacterFontRatio,
+                CharacterImage = Character.CharacterImage,
+                CharacterIcon = Character.CharacterIcon,
                 AnimeId = Character.Anime.AnimeId,
                 AnimeName = Character.Anime.AnimeName
             };

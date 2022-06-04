@@ -3,62 +3,184 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Update @Model.SelectedCharacter.CharacterName</h2>
-<form action="/Character/Update/@Model.SelectedCharacter.CharacterId" method="POST">
-    <div style="display: none;">
-        <input type="text" name="CharacterId" value="@Model.SelectedCharacter.CharacterId" />
+<h2 class="form__title">Update @Model.SelectedCharacter.CharacterName</h2>
+<form action="/Character/Update/@Model.SelectedCharacter.CharacterId" method="POST" class="form">
+    <div class="form__container">
+        <div style="display: none;">
+            <input type="text" name="CharacterId" value="@Model.SelectedCharacter.CharacterId" />
+        </div>
+        <div class="form__wrapper">
+            <div class="form__content">
+                <label>Character Name:</label>
+                <input type="text" name="CharacterName" value="@Model.SelectedCharacter.CharacterName" />
+            </div>
+            <div class="form__content">
+                <label>Character Font Size (px)</label>
+                <input type="text" name="CharacterFontRatio" value="@Model.SelectedCharacter.CharacterFontRatio" />
+            </div>
+            <div class="form__content">
+                <label>Character Bio:</label>
+                <textarea name="CharacterBio">@Model.SelectedCharacter.CharacterBio</textarea>
+            </div>
+        </div>
+        <div class="form__wrapper">
+            <div class="form__content">
+                <label>Character Icon</label>
+                <input type="text" name="CharacterIcon" value="@Model.SelectedCharacter.CharacterIcon" />
+            </div>
+            <div class="form__content">
+                <label>Character Image</label>
+                <input type="text" name="CharacterImage" value="@Model.SelectedCharacter.CharacterImage" />
+            </div>
+            <div class="form__content">
+                <label>Character Background</label>
+                <input type="text" name="CharacterBck" value="@Model.SelectedCharacter.CharacterBck" />
+            </div>
+            <div class="form__content">
+                <label>Anime</label>
+                <select name="AnimeId">
+                    @foreach (var anime in Model.AnimeOptions)
+                    {
+                        string selected = "";
+                        if (anime.AnimeId == Model.SelectedCharacter.AnimeId)
+                        {
+                            selected = "selected";
+                        }
+                        <option value="@anime.AnimeId" @selected>@anime.AnimeName</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form__wrapper">
+            <div class="form__basic">
+                <div>
+                    <label>Character Age (Years)</label>
+                    <input type="number" name="CharacterAge" value="@Model.SelectedCharacter.CharacterAge" />
+                </div>
+                <div>
+                    <label>Character Weight (lbs)</label>
+                    <input type="number" name="CharacterWeight" value="@Model.SelectedCharacter.CharacterWeight" />
+                </div>
+                <div>
+                    <label>Character Height <br /> (ft and in)</label>
+                    <input type="text" name="CharacterHeight" value="@Model.SelectedCharacter.CharacterHeight" />
+                </div>
+                <div>
+                    <label>Character Affiliation</label>
+                    <input type="text" name="CharacterAffiliation" value="@Model.SelectedCharacter.CharacterAffiliation" />
+                </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Character Name:</label>
-        <input type="text" name="CharacterName" value="@Model.SelectedCharacter.CharacterName" />
-    </div>
-    <div>
-        <label>Character Bio:</label>
-        <textarea name="CharacterBio">@Model.SelectedCharacter.CharacterBio</textarea>
-    </div>
-    <div>
-        <label>Character Age:</label>
-        <input type="number" name="CharacterAge" value="@Model.SelectedCharacter.CharacterAge" />
-    </div>
-    <div>
-        <label>Character Height:</label>
-        <input type="text" name="CharacterHeight" value="@Model.SelectedCharacter.CharacterHeight" />
-    </div>
-    <div>
-        <label>Character Weight:</label>
-        <input type="number" name="CharacterWeight" value="@Model.SelectedCharacter.CharacterWeight" />
-    </div>
-    <div>
-        <label>Character Affiliation:</label>
-        <input type="text" name="CharacterAffiliation" value="@Model.SelectedCharacter.CharacterAffiliation" />
-    </div>
-    <div>
-        <label>Character Icon:</label>
-        <input type="text" name="CharacterIcon" value="@Model.SelectedCharacter.CharacterIcon" />
-    </div>
-    <div>
-        <label>Character Image:</label>
-        <input type="text" name="CharacterImage" value="@Model.SelectedCharacter.CharacterImage" />
-    </div>
-    <div>
-        <label>Character Background Image:</label>
-        <input type="text" name="CharacterBck" value="@Model.SelectedCharacter.CharacterBck" />
-    </div>
-    <div>
-        <label>Anime Id:</label>
-        <select name="AnimeId">
-            @foreach (var anime in Model.AnimeOptions)
-            {
-                string selected = "";
-                if (anime.AnimeId == Model.SelectedCharacter.AnimeId)
-                {
-                    selected = "selected";
-                }
-                <option value="@anime.AnimeId" @selected>@anime.AnimeName</option>
-            }
-        </select>
-    </div>
-    <div>
-        <input type="submit" value="Update" />
+    <div class="form__btns">
+        <a href="/Character/DeleteConfirm/@Model.SelectedCharacter.CharacterId" class="form__submit form__submit--delete">Delete</a>
+        <input type="submit" value="Update" class="form__submit"/>
     </div>
 </form>
+<style>
+    .form {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 0;
+    }
+
+    .form__container {
+        display: grid;
+        grid-template-columns: repeat(3, 440px [col-start]);
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+
+    .form__wrapper {
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .form__wrapper label {
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 21px;
+        }
+
+        .form__wrapper input, .form__wrapper textarea, .form__wrapper select {
+            padding: 10px 8px;
+            width: 360px;
+            margin-top: 10px;
+        }
+
+        .form__wrapper textarea {
+            height: 230px;
+        }
+
+    .form__content {
+        margin: 14px 0;
+    }
+
+        .form__content select {
+            display: block;
+            width: 380px;
+            padding: 10px 8px;
+        }
+
+        .form__content select, .form__content option {
+            font-size: 16px;
+        }
+
+    .form__basic {
+        display: grid;
+        grid-template-columns: repeat(2, 240px [col-start]);
+    }
+
+        .form__basic div {
+            margin: auto 0 24px 0;
+        }
+
+        .form__basic input {
+            width: 200px;
+        }
+
+    .form__submit {
+        padding: 15px 0;
+        width: 160px;
+        background: transparent;
+        border: solid 3px white;
+        font-family: "Barlow", sans-serif;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .form__submit--delete {
+        border-color: red;
+        color: red;
+    }
+
+    .form__submit:hover {
+        background: white;
+        border: solid 3px transparent;
+        color: black;
+        font-weight: 600;
+    }
+
+    .form__submit--delete:hover {
+        background: red;
+        border: solid 3px transparent;
+        color: white;
+    }
+
+    .form__btns {
+        position: absolute;
+        width: 100%;
+        bottom: 12%;
+        transform: translateY(-12%);
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+</style>

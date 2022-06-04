@@ -7,6 +7,9 @@
     <div class="anime__img">
         <img src="@Model.SelectedAnime.AnimeBck" alt="Alternate Text" />
     </div>
+    <div class="anime__links--edit">
+        <a href="/Anime/Edit/@Model.SelectedAnime.AnimeId" class="anime__link">Edit @Model.SelectedAnime.AnimeName</a>
+    </div>
     <section class="anime__content">
         <div class="anime__logo">
             <img src="@Model.SelectedAnime.AnimeLogo" alt="Alternate Text" />
@@ -70,12 +73,12 @@
         overflow: hidden;
     }
 
-        .anime__img img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
+    .anime__img img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
 
     .anime__content {
         width: 600px;
@@ -93,7 +96,14 @@
     }
 
     .anime__logo {
-        margin-bottom: 60px;
+        margin-bottom: 40px
+    }
+
+    .anime__logo img {
+        width: 100%;
+        max-height: 320px;
+        object-fit: contain;
+        margin: 0 auto;
     }
 
     .anime__title, .anime__para {
@@ -151,6 +161,21 @@
         font-size: 18px;
         font-weight: bold;
         letter-spacing: 0.8px;
+    }
+
+    .anime__links--edit {
+        position: absolute;
+        bottom: 40px;
+        right: 60px;
+        display: flex;
+        gap: 25px;
+    }
+
+    .anime__link {
+        color: white;
+        text-decoration: none;
+        font-family: "IBM Plex Sans";
+        font-size: 22px;
     }
 </style>
 

@@ -163,7 +163,7 @@ namespace PassionProject_AustinCaron_MVP.Controllers
 
             if (response.IsSuccessStatusCode)
             {
-                return RedirectToAction("List");
+                return RedirectToAction("List", "Anime");
             } else
             {
                 return RedirectToAction("Error");

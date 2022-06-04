@@ -4,33 +4,127 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Update @Model.AnimeName</h2>
-<form action="/Anime/Update/@Model.AnimeId" method="POST">
-    <div style="display:none;">
-        <input type="text" name="AnimeId" value="@Model.AnimeId" />
+<h2 class="form__title">Update @Model.AnimeName</h2>
+<form action="/Anime/Update/@Model.AnimeId" method="POST" class="form">
+    <div class="form__container">
+        <div style="display:none;">
+            <input type="text" name="AnimeId" value="@Model.AnimeId" />
+        </div>
+        <div class="form__wrapper">
+            <div class="form__content">
+                <label>Anime Name</label>
+                <input type="text" name="AnimeName" value="@Model.AnimeName" />
+            </div>
+            <div class="form__content">
+                <label>Anime Description</label>
+                <textarea name="AnimeDescription">@Model.AnimeDescription</textarea>
+            </div>
+            <div class="form__content">
+                <label>Anime Abbreviation</label>
+                <input type="text" name="AnimeAbbr" value="@Model.AnimeAbbr" />
+            </div>
+        </div>
+        <div class="form__wrapper">
+            <div class="form__content">
+                <label>Anime Logo</label>
+                <input type="text" name="AnimeLogo" value="@Model.AnimeLogo" />
+            </div>
+            <div class="form__content">
+                <label>Anime Icon</label>
+                <input type="text" name="AnimeIcon" value="@Model.AnimeIcon" />
+            </div>
+            <div class="form__content">
+                <label>Anime Background</label>
+                <input type="text" name="AnimeBck" value="@Model.AnimeBck" />
+            </div>
+        </div>
     </div>
-    <div>
-        <label>Anime Name:</label>
-        <input type="text" name="AnimeName" value="@Model.AnimeName" />
-    </div>
-    <div>
-        <label>Anime Description:</label>
-        <input type="text" name="AnimeDescription" value="@Model.AnimeDescription" />
-    </div>
-    <div>
-        <label>Anime Abbreviation:</label>
-        <input type="text" name="AnimeAbbr" value="@Model.AnimeAbbr" />
-    </div>
-    <div>
-        <label>Anime Icon:</label>
-        <input type="text" name="AnimeName" value="@Model.AnimeIcon" />
-    </div>
-    <div>
-        <label>Anime Background Image:</label>
-        <input type="text" name="AnimeName" value="@Model.AnimeBck" />
-    </div>
-    <div>
-        <input type="submit" value="Update Anime" />
+    <div class="form__btns">
+        <a href="/Anime/DeleteConfirm/@Model.AnimeId" class="form__submit form__submit--delete">Delete</a>
+        <input type="submit" value="Update Anime" class="form__submit" />
     </div>
 </form>
+<style>
+    .form {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 0;
+    }
 
+    .form__container {
+        display: grid;
+        grid-template-columns: repeat(2, 440px [col-start]);
+        justify-content: center;
+        height: 100%;
+        align-items: center;
+    }
+
+    .form__wrapper {
+        color: white;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .form__wrapper label {
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 21px;
+        }
+
+        .form__wrapper input, .form__wrapper textarea, .form__wrapper select {
+            padding: 10px 8px;
+            width: 360px;
+            margin-top: 10px;
+        }
+
+        .form__wrapper textarea {
+            height: 230px;
+        }
+
+    .form__content {
+        margin: 14px 0;
+    }
+
+    .form__submit {
+        padding: 15px 0;
+        width: 160px;
+        background: transparent;
+        border: solid 3px white;
+        font-family: "Barlow", sans-serif;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+    }
+
+    .form__submit--delete {
+        border-color: red;
+        color: red;
+    }
+
+    .form__submit:hover {
+        background: white;
+        border: solid 3px transparent;
+        color: black;
+        font-weight: 600;
+    }
+
+    .form__submit--delete:hover {
+        background: red;
+        border: solid 3px transparent;
+        color: white;
+    }
+
+    .form__btns {
+        position: absolute;
+        width: 100%;
+        bottom: 12%;
+        transform: translateY(-12%);
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+    }
+</style>

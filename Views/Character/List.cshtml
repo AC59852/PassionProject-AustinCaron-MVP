@@ -3,10 +3,101 @@
     ViewBag.Title = "List";
 }
 
-<h2>List</h2>
-@foreach(var character in Model)
-{
-    <a href="/character/details/@character.CharacterId"><h2>Name: @character.CharacterName</h2></a>
-    <h3>Anime: @character.AnimeName</h3>
-}
+<main>
+    <div class="character__wrapper">
+        <div class="character__icons">
+            @foreach (var character in Model)
+            {
+                <a href="/character/details/@character.CharacterId" class="character__icon">
+                    <img src="@character.CharacterIcon" alt="Thumbnail for @character.CharacterName" />
+                    <h3>@character.CharacterName</h3>
+                </a>
+            }
+        </div>
+        <a href="/Character/New" class="character__newBtn">Add New <img src="~/Content/Images/chevron-right.svg" alt="Add a New Character"/></a>
+    </div>
+</main>
+<style>
+    .character__wrapper {
+        max-width: 807px;
+        width: 50%;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .character__icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 35px;
+        overflow-y: auto;
+        max-height: 740px;
+    }
+
+    .character__icon {
+        position: relative;
+        width: 210px;
+        height: 210px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+        .character__icon img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            filter: brightness(0.65);
+            border-radius: 20px;
+            z-index: -1;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+    .character__icon {
+        font-family: "IBM Plex Sans";
+        color: white;
+        text-decoration: none;
+        font-size: 52px;
+        letter-spacing: 2px;
+        text-align: center;
+        transition: transform 0.3s ease;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+
+        .character__icon:hover.character__icon img {
+            transform: scale(1.1);
+        }
+
+    .character__newBtn {
+        position: absolute;
+        bottom: -80px;
+        right: 50px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        color: white;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 18px;
+        gap: 10px;
+        padding-bottom: 6px;
+        border-bottom: solid 3px transparent;
+        transition: border-bottom 0.3s ease;
+    }
+
+        .character__newBtn:hover {
+            border-bottom: 3px solid white
+        }
+
+        .character__newBtn img {
+            filter: invert(1);
+        }
+</style>
 

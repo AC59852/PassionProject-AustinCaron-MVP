@@ -4,7 +4,6 @@
 }
 
 <main>
-    <h2>Anime:</h2>
     <div class="anime__wrapper">
         <div class="anime__icons">
             @foreach (var Anime in Model)
@@ -23,6 +22,10 @@
         max-width: 807px;
         width: 50%;
         margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .anime__icons {
@@ -30,6 +33,8 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 35px;
+        overflow-y: auto;
+        max-height: 740px;
     }
 
     .anime__icon {
@@ -73,7 +78,7 @@
 
     .anime__newBtn {
         position: absolute;
-        bottom: 40px;
+        bottom: -80px;
         right: 50px;
         text-decoration: none;
         display: flex;

@@ -2,12 +2,177 @@
 @{
     ViewBag.Title = "Details";
 }
-<a href="/anime/details/@Model.SelectedCharacter.AnimeId">Back to @Model.SelectedCharacter.AnimeName</a>
-<h2>@Model.SelectedCharacter.CharacterName</h2>
-<p>@Model.SelectedCharacter.CharacterBio</p>
-<h3>Quick Info</h3>
-<div>@Model.SelectedCharacter.CharacterHeight</div>
-<div>@Model.SelectedCharacter.CharacterWeight</div>
-<div>@Model.SelectedCharacter.CharacterAffiliation</div>
+<main class="character">
+    <div class="character__img">
+        <img src="@Model.SelectedCharacter.CharacterBck" alt="Background Image for @Model.SelectedCharacter.CharacterName" />
+    </div>
+    <div class="character__links">
+        <a href="/anime/details/@Model.SelectedCharacter.AnimeId" class="character__link">Back to @Model.SelectedCharacter.AnimeName</a>
+        <a href="/Character/Edit/@Model.SelectedCharacter.CharacterId" class="character__link">Edit @Model.SelectedCharacter.CharacterName</a>
+    </div>
+    <section class="character__card">
+        <img src="@Model.SelectedCharacter.CharacterImage" alt="Alternate Text" class="character__render" />
+        <div class="character__text">
+            <h1 class="character__name">@Model.SelectedCharacter.CharacterName</h1>
+            <div class="character__data">
+                <p class="character__bio">@Model.SelectedCharacter.CharacterBio</p>
+                <div class="character__basic hidden">
+                    <div class="character__info character__info--age">
+                        <h2>Age</h2>
+                        <p>@Model.SelectedCharacter.CharacterAge Years Old</p>
+                    </div>
+                    <div class="character__info character__info--weight">
+                        <h2>Weight</h2>
+                        <p>@Model.SelectedCharacter.CharacterWeight lbs</p>
+                    </div>
+                    <div class="character__info character__info--height">
+                        <h2>Height</h2>
+                        <p>@Model.SelectedCharacter.CharacterHeight</p>
+                    </div>
+                    <div class="character__info character__info--affiliation">
+                        <h2>Affiliation</h2>
+                        <p>@Model.SelectedCharacter.CharacterAffiliation</p>
+                    </div>
+                </div>
+            </div>
+            <button class="character__button"><span>Basic</span><img src="~/Content/Images/chevron-right.svg" alt="Button to Cycle Between Character Info and Bio" /></button>
+        </div>
+    </section>
+</main>
+<script type="text/javascript">
+    let btn = document.querySelector(".character__button"),
+        bio = document.querySelector(".character__bio"),
+        basic = document.querySelector(".character__basic");
 
 
+    btn.addEventListener("click", function () {
+        if (basic.classList.contains("hidden")) {
+            basic.classList.remove("hidden");
+            bio.classList.add("hidden")
+            btn.querySelector("span").textContent = "Bio"
+        } else if (bio.classList.contains("hidden")) {
+            btn.querySelector("span").textContent = "Basic"
+            bio.classList.remove("hidden");
+            basic.classList.add("hidden")
+        }
+    })
+</script>
+<style>
+    body, main { overflow: hidden; }
+    .hidden { display: none !important; }
+    .character__img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+        filter: brightness(0.85);
+        overflow: hidden;
+    }
+
+    .character__img img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .character__card {
+        width: 560px;
+        position: relative;
+        top: -120px;
+        left: 120px;
+    }
+
+    .character__render {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+        position: relative;
+        bottom: -120px;
+    }
+
+    .character__text {
+        background: rgba(17, 17, 17, 0.8);
+        border-radius: 20px;
+        font-family: "Barlow";
+        color: white;
+        height: 500px;
+    }
+
+    .character__name {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-weight: bold;
+        font-size: @Model.SelectedCharacter.CharacterFontRatio;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .character__bio {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 18px;
+        line-height: 130%;
+    }
+
+    .character__basic {
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: center;
+       max-width: 500px;
+       margin: 0 auto;
+       gap: 14px;
+       align-items: center;
+       margin-top: 50px;
+    }
+
+    .character__info {
+        background-color: #212121;
+        padding: 15px 10% 15px 7%;
+    }
+
+    .character__info h2 {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 22px;
+        margin: 3% 0 5%;
+        text-transform: capitalize;
+        color: #B3B3B3;
+        letter-spacing: 0.5px;
+    }
+
+    .character__info p {
+        font-size: 26px;
+        letter-spacing: 0.5px;
+        color: #E2E2E2;
+        font-weight: 600;
+    }
+
+    .character__button {
+        position: absolute;
+        bottom: 15px;
+        right: 15px;
+        background: transparent;
+        filter: invert(1);
+        border: none;
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-family: "IBM Plex Sans", sans-serif
+    }
+
+    .character__links {
+        position: absolute;
+        bottom: 40px;
+        right: 60px;
+        display: flex;
+        gap: 25px;
+    }
+
+    .character__link {
+        color: white;
+        text-decoration: none;
+        font-family: "IBM Plex Sans";
+        font-size: 22px;
+    }
+</style>

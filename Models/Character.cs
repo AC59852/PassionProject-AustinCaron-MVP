@@ -30,6 +30,8 @@ namespace PassionProject_AustinCaron_MVP.Models
 
         public string CharacterBck { get; set; }
 
+        public string CharacterFontRatio { get; set; }
+
 
         // A character can only be in one anime
         // An anime can have many characters
@@ -59,6 +61,8 @@ namespace PassionProject_AustinCaron_MVP.Models
         public string CharacterImage { get; set; }
 
         public string CharacterBck { get; set; }
+
+        public string CharacterFontRatio { get; set; }
 
         public int AnimeId { get; set; }
         public string AnimeName { get; set; }
