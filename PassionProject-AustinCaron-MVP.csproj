@@ -207,6 +207,10 @@
     <Compile Include="Migrations\202206030805205_animelogo.designer.cs">
       <DependentUpon>202206030805205_animelogo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206031933477_characterfont.cs" />
+    <Compile Include="Migrations\202206031933477_characterfont.designer.cs">
+      <DependentUpon>202206031933477_characterfont.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Anime.cs" />
@@ -319,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206030805205_animelogo.resx">
       <DependentUpon>202206030805205_animelogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206031933477_characterfont.resx">
+      <DependentUpon>202206031933477_characterfont.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

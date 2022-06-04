@@ -3,10 +3,68 @@
     ViewBag.Title = "DeleteConfirm";
 }
 
-<h2>Do you want to delete @Model.CharacterName?</h2>
-<a href="/Character/Details/@Model.CharacterId">Back to @Model.CharacterName</a>
-<p>@Model.CharacterBio</p>
-<form action="/Character/Delete/@Model.CharacterId" method="POST">
-    <input type="submit" value="Delete" />
+<a href="/Character/Details/@Model.CharacterId" class="delete__link">Back to @Model.CharacterName</a>
+<h2 class="delete__title">Do you want to delete <span class="delete__name">@Model.CharacterName</span>?</h2>
+<p class="delete__bio">@Model.CharacterBio</p>
+<form action="/Character/Delete/@Model.CharacterId" method="POST" class="delete__btn">
+    <input type="submit" value="Delete"/>
 </form>
+<style>
+    .delete__link {
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        font-family: "IBM Plex Sans";
+        font-size: 22px;
+        border-bottom: solid 3px white;
+        padding-bottom: 5px;
+        margin: 50px 100px;
+    }
 
+    .delete__title {
+        text-align: center;
+        color: white;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 40px;
+        text-transform: uppercase;
+    }
+
+    .delete__name {
+        border-bottom: solid 5px white;
+        padding-bottom: 5px;
+    }
+
+    .delete__bio {
+        font-family: 'Barlow', sans-serif;
+        font-size: 20px;
+        color: white;
+        width: 48%;
+        line-height: 170%;
+        margin: 40px auto;
+        text-align: center;
+    }
+
+    .delete__btn {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+    }
+
+    .delete__btn input {
+        padding: 18px 75px;
+        background: transparent;
+        border: solid 3px red;
+        color: red;
+        font-family: "IBM Plex Sans";
+        font-size: 20px;
+        display: block;
+    }
+
+    .delete__btn:hover.delete__btn input {
+        background: red;
+        border: solid 3px transparent;
+        color: white;
+        cursor: pointer;
+    }
+</style>

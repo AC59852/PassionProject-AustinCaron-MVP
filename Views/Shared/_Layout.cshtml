@@ -22,7 +22,6 @@
             <ul class="nav__list">
                 <li><a href="/">Anime</a></li>
                 <li><a href="/Character/List">Characters</a></li>
-                @Html.Partial("_LoginPartial")
             </ul>
         </nav>
     </header>
@@ -106,6 +105,8 @@
         margin: 0 auto;
         padding: 25px 0;
         align-items: center;
+        position: relative;
+        z-index: 999;
     }
 
     .nav__list {
@@ -141,5 +142,12 @@
         font-family: "IBM Plex Sans", sans-serif;
         font-size: 24px;
         color: white;
+    }
+
+    .form__title {
+        color: white;
+        font-family: "IBM Plex Sans";
+        font-size: 32px;
+        margin: 70px 100px;
     }
 </style>
