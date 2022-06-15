@@ -30,42 +30,21 @@
 
 > Toksan-Wiki was created as a tool to help users find simple, easy to understand information about their favourite characters without the need of constant scrolling through content that feels meaningless, or just unneccesary.
 > 
-> The content is based off of another project called [Toksan Anime](https://ac59852.github.io/toksan-anime). This site was created as a showcase my own, and a friend/colleagues ever-growing skillset, as well as our passion for anime. I wanted to develop the concept further and create a place to learn more specifically about characters instead of the anime
+> The content is based off of another project called [Toksan Anime](https://ac59852.github.io/toksan-anime). This site was created as a showcase my own, and a friend/colleagues ever-growing skillset, as well as our passion for anime. I wanted to develop the concept further and create a place to learn more specifically about characters instead of the anime.
 
-# 📒 Wiki
+# 📒 Features
 
-This project repository has [a great wiki](https://github.com/chroline/well_app/wiki) (currently WIP) that you should consider reading! It goes into detail about the project from a more technical aspect. If you are interested in learning more about the app itself, go ahead and check it out!
+This project features a fully responsive layout for all screen sizes (up to desktop 1080p), dynamic routing for each anime/character, one-to-many relational database for relating characters to anime, a fully functioning CRUD system for adding, updating, and removing both animes' and characters, and extra small features such as tactile feedback for hovering over content, as well as a modern user interface.
 
 # 👨‍💻 Tech stack
 
-Here's a brief high-level overview of the tech stack the Well app uses:
+Here's a brief overview of the tech stack Toksan-Wiki uses:
 
-- This project uses the [Flutter app development framework](https://flutter.dev/). Flutter is a cross-platform hybrid app development platform which allows us to use a single codebase for apps on mobile, desktop, and the web.
-- For persistent storage (database), the app uses the [Hive](https://hivedb.dev/) package which allows the app to create a custom storage schema and save it to a local database.
-- To send local push notifications, the app uses the [flutter_local_notifications](https://pub.dev/packages/flutter_local_notifications) package which supports Android, iOS, and macOS.
-  - 🚨 Currently, notifications aren't working on macOS. This is a known issue that we are working to resolve!
-- The app uses the font ["Work Sans"](https://fonts.google.com/specimen/Work+Sans) as its main font, and the design of the app adheres to the material design guidelines.
-
-For more information on the technologies that power the Well app, check out the [Tech Stack](https://github.com/chroline/well_app/wiki/Tech-Stack) page on our wiki.
-
-# ✍️ Contributing
-
-Interested in contributing to the Well app project? Thanks so much for your interest! We are always looking for improvements to the project and contributions from open-source developers are greatly appreciated.
-
-If you have a contribution in mind, please check out our [Contribution Guide](https://github.com/chroline/well_app/wiki/Contribution-Guide) for information on how to do so. Also, make sure you read our [Code of Conduct](https://github.com/chroline/well_app/wiki/Code-of-Conduct) to foster an encouraging sense of community.
-
-# 🌟 Spread the word!
-
-If you want to say thank you and/or support active development of the Well app:
-
-- Add a GitHub Star to the project!
-- Tweet about the project on your Twitter!
-  - Tag [@colegawin_](https://twitter.com/colegawin_) and/or `#thewellapp`
-- Leave us a review [on the iOS App Store](https://apps.apple.com/us/app/well-reboot-your-mindset/id1573357406)!
-
-Thanks so much for your interest in growing the reach of the Well app!
-
-_**PS:** consider sponsoring me ([Cole Gawin](https://colegaw.in)) to continue the development of this project on [BuyMeACoffee](https://buymeacoffee.com/colegawin) :)_
+- This project uses the [ASP.NET framework](https://asp.net/) for C#. .NET is a developer platform made up of tools, programming languages, and libraries for building many different types of applications.
+- For persistent storage (database), the app uses the built-in SQL Server system that is installed with Visual Studio. This allows the app to create a custom storage schema and save it to a local database.
+- The web app uses the fonts ["IBM Plex Sans"]([https://fonts.google.com/specimen/Work+Sans](https://fonts.google.com/specimen/IBM+Plex+Sans) and [
+Barlow](https://fonts.google.com/specimen/Barlow) as the font-families for headings and paragraph text respectively.
+- On top of these tools, pages are rendered using HTML5, styled using CSS3, and custom scripts using JavaScript. These tools allow for powerful client-side applications such as click events and others.
 
 # ⚠️ License
 
