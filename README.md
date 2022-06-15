@@ -30,8 +30,7 @@
 
 > Toksan-Wiki was created as a tool to help users find simple, easy to understand information about their favourite characters without the need of constant scrolling through content that feels meaningless, or just unneccesary.
 > 
-> The content is based off of another project called [Toksan Anime](https://ac59852.github.io/toksan-anime). This site was created as a showcase my own, and a friend/colleagues ever-growing skillset, as well as our passion for anime.
-**Read more about the Well app on [the project homepage](https://projects.colegaw.in/well-app?utm_source=GitHub&utm_medium=readme&utm_campaign=well_app_readme).**
+> The content is based off of another project called [Toksan Anime](https://ac59852.github.io/toksan-anime). This site was created as a showcase my own, and a friend/colleagues ever-growing skillset, as well as our passion for anime. I wanted to develop the concept further and create a place to learn more specifically about characters instead of the anime
 
 # 📒 Wiki
 
