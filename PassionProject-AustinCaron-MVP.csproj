@@ -224,6 +224,14 @@
     <Compile Include="Migrations\202206150429138_animeRevert.designer.cs">
       <DependentUpon>202206150429138_animeRevert.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206151835595_animeImageTest.cs" />
+    <Compile Include="Migrations\202206151835595_animeImageTest.designer.cs">
+      <DependentUpon>202206151835595_animeImageTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206151850011_animeImageRevert.cs" />
+    <Compile Include="Migrations\202206151850011_animeImageRevert.designer.cs">
+      <DependentUpon>202206151850011_animeImageRevert.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Anime.cs" />
@@ -349,6 +357,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206150429138_animeRevert.resx">
       <DependentUpon>202206150429138_animeRevert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151835595_animeImageTest.resx">
+      <DependentUpon>202206151835595_animeImageTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151850011_animeImageRevert.resx">
+      <DependentUpon>202206151850011_animeImageRevert.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
