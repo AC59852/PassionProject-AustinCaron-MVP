@@ -20,8 +20,6 @@
 **[PROJECT PHILOSOPHY](https://github.com/chroline/well_app#-project-philosophy) • 
 [WIKI](https://github.com/chroline/well_app#-wiki) • 
 [TECH STACK](https://github.com/chroline/well_app#-tech-stack) • 
-[CONTRIBUTING](https://github.com/chroline/well_app#%EF%B8%8F-contributing) • 
-[SPREAD THE WORD](https://github.com/chroline/well_app#-spread-the-word) • 
 [LICENSE](https://github.com/chroline/well_app#%EF%B8%8F-license)**
 
 </div>
@@ -30,9 +28,9 @@
 
 # 🧐 Project philosophy
 
-> The Well app is a mental health and mindfulness app built on top of the science of positive psychology. The Well app is more than just another meditation or journaling app; it encourages you to enhance and reflect on your day with structured, guided activities.
+> Toksan-Wiki was created as a tool to help users find simple, easy to understand information about their favourite characters without the need of constant scrolling through content that feels meaningless, or just unneccesary.
 > 
-> There are 5 daily tasks that the Well app asks you to complete each day: record 3 gratitudes, write a journal entry, perform 3 acts of kindness, exercise for 20 minutes, and meditate for 15 minutes.
+> The content is based off of another project called [Toksan Anime](https://ac59852.github.io/toksan-anime). This site was created as a showcase my own, and a friend/colleagues ever-growing skillset, as well as our passion for anime.
 **Read more about the Well app on [the project homepage](https://projects.colegaw.in/well-app?utm_source=GitHub&utm_medium=readme&utm_campaign=well_app_readme).**
 
 # 📒 Wiki
