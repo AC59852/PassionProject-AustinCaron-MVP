@@ -4,11 +4,12 @@
 
 ---
 
-### The Well app is available for download! 🥳 🚀
+### Download and Setup in 4 Easy Steps 🥳 🚀
 
-- iOS/macOS: Search for "well: reboot your mindset" on the [iOS app store](https://apps.apple.com/us/app/well-reboot-your-mindset/id1573357406).
-- Web: Visit [https://well-app.netlify.app](https://well-app.netlify.app). Install as a PWA for native-like functionality!
-- Android: coming soon 👀
+- Fork the project and download the code to your local system
+- Make sure there is an App_Data folder in the project (Right click solution > View in File Explorer)
+- Tools > Nuget Package Manager > Package Manage Console > Update-Database
+- Check that the database is created using (View > SQL Server Object Explorer > MSSQLLocalDb > ..)
 
 ---
 
