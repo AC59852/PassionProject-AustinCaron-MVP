@@ -7,12 +7,10 @@
     <div class="anime__img">
         <img src="@Model.SelectedAnime.AnimeBck" alt="Alternate Text" />
     </div>
-    <div class="anime__links--edit">
-        <a href="/Anime/Edit/@Model.SelectedAnime.AnimeId" class="anime__link">Edit @Model.SelectedAnime.AnimeName</a>
-    </div>
     <section class="anime__content">
         <div class="anime__logo">
             <img src="@Model.SelectedAnime.AnimeLogo" alt="Alternate Text" />
+            <button class="anime__btn">View Characters</button>
         </div>
         <div class="anime__text">
             <h1 class="anime__title">@Model.SelectedAnime.AnimeName</h1>
@@ -21,22 +19,29 @@
         </div>
     </section>
     <nav class="anime__characters">
-        @foreach (var character in Model.RelatedCharacters)
-        {
-            <ul class="anime__nav">
+        <ul class="anime__nav">
+            @foreach (var character in Model.RelatedCharacters)
+            {
                 <li class="anime__item">
                     <a href="/Character/Details/@character.CharacterId" class="anime__link">@character.CharacterName</a>
                 </li>
-            </ul>
-        }
+            }
+        </ul>
     </nav>
+    <div class="anime__links--edit">
+        <a href="/Anime/Edit/@Model.SelectedAnime.AnimeId" class="anime__link">Edit @Model.SelectedAnime.AnimeName</a>
+    </div>
 </main>
 <script type="text/javascript">
     let text = '@Model.SelectedAnime.AnimeDescription',
         para1 = document.querySelector(".anime__para-1"),
-        para2 = document.querySelector(".anime__para-2");
+        para2 = document.querySelector(".anime__para-2"),
+        animeBtn = document.querySelector(".anime__btn"),
+        animeChars = document.querySelector(".anime__characters");
 
-        text = text.replaceAll("&#39;", "'")
+    text = text.replaceAll("&#39;", "'");
+    text = text.replaceAll("&quot;", `"`)
+        
 
     // Split the model content into 2 paragraphs.
     // The function takes 2 arguements: text (the content), and numWords(number of words to split at)
@@ -60,10 +65,25 @@
 
     para1.textContent = part1;
     para2.textContent = part2;
+
+    animeBtn.addEventListener("click", () => {
+        animeChars.classList.toggle("anime-show");
+        document.querySelector(".anime__text").classList.toggle("anime-hide");
+        document.querySelector(".anime__links--edit").classList.toggle("anime-hide");
+
+        if (animeChars.classList.contains("anime-show")) {
+            animeBtn.textContent = "View Description"
+        } else {
+            animeBtn.textContent = "View Characters";
+        }
+    })
 </script>
 <style>
+    .anime-hide { display: none !important; }
+    .anime-show { display: block !important; }
+
     .anime__img {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -81,73 +101,79 @@
     }
 
     .anime__content {
-        width: 600px;
-        position: relative;
-        top: 60px;
-        left: 120px;
+        width: 90%;
+        margin: 0 auto;
+        max-width: 600px;
     }
 
     .anime__text {
         background: rgba(17, 17, 17, 0.8);
-        padding: 50px 0;
+        padding: 0 0 15px;
         border-radius: 20px;
         font-family: "Barlow";
         color: white;
+        height: 390px;
+        overflow-y: auto;
     }
 
     .anime__logo {
-        margin-bottom: 40px
+        margin-top: 20px;
+        margin-bottom: 0;
     }
 
     .anime__logo img {
         width: 100%;
-        max-height: 320px;
+        max-height: 210px;
         object-fit: contain;
-        margin: 0 auto;
+        margin: 0 auto 5px;
+    }
+
+    .anime__btn {
+        border: none;
+        background: transparent;
+        color: white;
+        font-family: 'IBM Plex Sans';
+        font-size: 15px;
+        padding: 14px;
+        display: block;
+        margin-left: auto;
+        cursor: pointer;
+        text-align: right;
     }
 
     .anime__title, .anime__para {
-        width: 80%;
+        width: 87%;
         margin: 0 auto;
     }
 
     .anime__title {
-        font-size: 36px;
-        font-weight: 700;
+        display: none;
     }
 
     .anime__para {
-        font-size: 18px;
+        font-size: 15px;
         font-weight: 600;
         line-height: 150%;
     }
 
     .anime__para-1 {
-        margin: 20px auto;
+        margin: 20px auto 10px;
     }
 
     .anime__characters {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        right: 100px;
+        display: none;
+        margin-top: 25px;
+    }
+
+    .anime__nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 100%;
     }
 
     .anime__item {
-        margin: 50px 0;
         position: relative;
-    }
-
-    .anime__item::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 130%;
-        transform: translateY(-50%) scaleY(1);
-        background: white;
-        width: 40px;
-        height: 2px;
-        transition: transform 0.3s ease-in-out;
     }
 
     .anime__item:hover::after {
@@ -164,11 +190,9 @@
     }
 
     .anime__links--edit {
-        position: absolute;
-        bottom: 40px;
-        right: 60px;
-        display: flex;
-        gap: 25px;
+        display: none;
+        justify-content: center;
+        margin-top: 20px;
     }
 
     .anime__link {
@@ -176,6 +200,154 @@
         text-decoration: none;
         font-family: "IBM Plex Sans";
         font-size: 22px;
+    }
+
+    @@media screen and (min-width: 380px) and (min-height: 830px) {
+        .anime__text {
+            height: 490px;
+        }
+
+        .anime__title {
+            display: block;
+            font-size: 36px;
+            font-weight: 700;
+            margin-top: 25px;
+        }
+
+        .anime__para { font-size: 16px; }
+
+        .anime__para-1 {
+            margin: 10px auto;
+        }
+
+    }
+
+    @@media screen and (min-width: 420px) and (min-height: 900px) {
+        .anime__logo { margin-top: 40px; }
+    }
+
+    @@media screen and (min-width: 809px) {
+
+        .anime__logo {
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        .anime__btn { font-size: 20px; }
+
+        .anime__text { height: 513px; }
+
+        .anime__title {
+            font-size: 50px;
+            margin-top: 26px;
+        }
+
+        .anime__para-1 { margin: 20px auto; }
+
+        .anime__para { font-size: 18px; }
+    }
+
+    @@media screen and (min-width: 1023px) {
+        .anime__content {
+            margin: 0;
+            position: relative;
+            top: 60px;
+            left: 120px;
+        }
+
+        .anime__text {
+            padding: 32px 0;
+            overflow-y: visible;
+            height: 448px;
+        }
+
+        .anime__logo {
+            margin-top: 60px;
+            margin-bottom: 22px;
+        }
+
+        .anime__logo img { max-height: 210px; }
+
+        .anime__btn { display: none; }
+
+        .anime__title, .anime__para {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .anime__title {
+            font-size: 36px;
+        }
+
+        .anime__para {
+            font-size: 18px;
+        }
+
+        .anime__para-1 {
+            margin: 20px auto;
+        }
+
+        .anime__nav {
+            display: block;
+        }
+
+        .anime__characters {
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 100px;
+        }
+
+        .anime__item {
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .anime__item::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 130%;
+            transform: translateY(-50%) scaleY(1);
+            background: white;
+            width: 40px;
+            height: 2px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .anime__item:hover::after {
+            transform: scaleY(2.4);
+        }
+
+        .anime__links--edit {
+            position: absolute;
+            bottom: 40px;
+            right: 60px;
+            display: flex;
+            gap: 25px;
+        }
+
+        .anime__link {
+            font-size: 22px;
+        }
+    }
+
+    @@media screen and (min-width: 1080px) {
+        .anime__logo { 
+            margin-top: 0; 
+            margin-bottom: 20px;
+        }
+
+        .anime__text {
+            padding: 30px 0 40px;
+        }
+
+        .anime__title, .anime__para { width: 86%; }
+
+        .anime__title { font-size: 48px; }
+
+        .anime__para-1 { margin: 10px auto; }
     }
 </style>
 

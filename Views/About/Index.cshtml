@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<section class="about">
+    <h1>About Toksan-Wiki</h1>
+    <div class="hero content">
+        <h2>Anime At a Glance</h2>
+        <p class="hero__tagline">Providing users with Anime / Character information without feeling overwhelmed with useless information</p>
+    </div>
+    <div class="why content">
+        <h2>Why Was Toksan-Wiki Made</h2>
+        <p>A good friend and colleague of mine created a website called <a href="https://ac59852.github.io/toksan-anime" target="_blank">Toksan Anime</a>, which was created as a showcase of our growing skill, but also one of our favourite pieces of media, anime. While working on this, I realized that while we have a lot of great content about the anime itself, there is very little focus on the characters and settings. Because of this, I wanted to create Toksan-Wiki.</p>
+        <p>Something my friends and I constantly do is search for information on characters in an anime, so we resort to the fandoms. I really don't like modern wiki fandoms navigation systems, and how basic yet important information gets thrown to the wayside. I also think that the aesthetics and user experience are also neglected in the pursuit of very specific information that nobody needs. Toksan-Wiki takes the premise of a fandom, and flips it to create a more user friendly, stylized take on character focused information. Basic content such as names, bios, and simple information like height and weight take focus.</p>
+    </div>
+    <div class="contributing content">
+        <h2>How You Can Contribute</h2>
+        <p>Toksan-Wiki is completely open for editing. There is no account barrier to add, edit, or remove content. Recognizing that this could potentially cause abusive issues such as deleting other users content, ultimately only the creator of the site has access to the database/database content, and can revert or revoke access to editing if it becomes abusive. But the goal here is to provide everyone with the opportunity to contribute, as self-curated content can take a long time, and users ultimately want to see the content important to them.</p>
+        <p>Please, respect other users contributions.As well, be mindful of what you share. It's very possible somebody else creates content that you want to make, so simply just edit and make changes to what you think might be wrong or missing.</p>
+    </div>
+</section>
+<style>
+    .about h1 {
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 22px;
+        color: white;
+        margin: 50px 20px;
+    }
+
+    .content {
+        width: 90%;
+        max-width: 1600px;
+        margin: 0 auto 40px;
+        color: white;
+    }
+
+    .content h2 {
+        text-align: center;
+        font-family: 'IBM Plex Sans', sans-serif;
+        font-size: 34px;
+        line-height: 1.4;
+    }
+
+    .hero__tagline { text-align: center }
+
+    .content p {
+        width: 95%;
+        margin: 24px auto;
+        font-family: 'Barlow';
+        font-size: 17px;
+        line-height: 1.5;
+    }
+
+    .content p a {
+        color: white;
+        text-decoration: none;
+        border-bottom: solid 4px white;
+        transition: border-bottom 0.2s ease; 
+    }
+
+    .content p a:hover {
+        border-bottom: solid 6px white;
+    }
+
+    @@media screen and (min-width: 810px) {
+        .content h2 { font-size: 40px; }
+        .content p { font-size: 20px; }
+    }
+
+    @@media screen and (min-width: 1080px) {
+
+        .about h1 {
+            font-size: 30px;
+            margin: 60px;
+        }
+
+        .content { margin: 4% auto; }
+        .content h2 {
+            font-size: 52px;
+            margin-bottom: 30px;
+        }
+
+        .content p {
+            width: 83%;
+            margin: 24px auto;
+            font-family: 'Barlow';
+            font-size: 22px;
+            line-height: 1.5;
+        }
+
+        .content p a {
+            color: white;
+            text-decoration: none;
+            border-bottom: solid 4px white;
+            transition: border-bottom 0.2s ease;
+        }
+
+        .content p a:hover {
+            border-bottom: solid 6px white;
+        }
+    }
+</style>
+
