@@ -50,6 +50,4 @@ Barlow](https://fonts.google.com/specimen/Barlow) as the font-families for headi
 
 The Well app is free and open-source software licensed under the GNU General Public License v3.0. All designs were created by [Cole Gawin](https://github.com/chroline) and distributed under Creative Commons license (CC BY-SA 4.0 International).
 
-<br />
-
 ---
