@@ -19,7 +19,15 @@
                     <h1>Toksan Wiki</h1>
                 </a>
             </div>
+            <button class="nav__icon" aria-label="Main Menu">
+                <svg width="35" height="35" viewBox="0 0 100 100">
+                    <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                    <path class="line line2" d="M 20,50 H 80" />
+                    <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
             <ul class="nav__list">
+                <li><a href="/About/Index">About</a></li>
                 <li><a href="/">Anime</a></li>
                 <li><a href="/Character/List">Characters</a></li>
             </ul>
@@ -28,9 +36,17 @@
     <div>
         @RenderBody()
     </div>
-
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
+    <script>
+        document.querySelector(".nav__icon").addEventListener("click", function () {
+            document.querySelector(".nav__icon").classList.toggle("opened");
+
+            document.querySelector(".nav__list").classList.toggle("nav-show");
+
+            document.querySelector("body").classList.toggle("overflow");
+        });
+    </script>
 </body>
 </html>
 <style>
@@ -88,6 +104,8 @@
         border-spacing: 0;
     }
 
+    .overflow { overflow: hidden; }
+
     body {
         min-height: 100vh;
         background: #111111;
@@ -109,16 +127,32 @@
         z-index: 999;
     }
 
+    .nav-show {
+        height: 100vh !important;
+    }
+
     .nav__list {
         display: flex;
-        gap: 22px;
+        flex-direction: column;
+        gap: 45px;
         font-family: "IBM Plex Sans", sans-serif;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 0;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        background: #111111;
+        transition: height 0.6s ease;
+        overflow: hidden;
     }
 
     .nav__list li a {
         color: white;
         text-decoration: none;
-        font-size: 18px;
+        font-size: 28px;
     }
 
     .nav__logo a { 
@@ -129,18 +163,18 @@
     }
 
     .nav__logo a img {
-        width: 80px;
+        width: 70px;
         filter: invert(1);
     }
 
     .nav__logo a h1::before {
         content: "|";
-        margin-right: 12px;
+        margin-right: 10px;
     }
 
     .nav__logo a h1 {
         font-family: "IBM Plex Sans", sans-serif;
-        font-size: 24px;
+        font-size: 22px;
         color: white;
     }
 
@@ -149,5 +183,114 @@
         font-family: "IBM Plex Sans";
         font-size: 32px;
         margin: 70px 100px;
+    }
+
+
+
+    /* 
+        Nav Icon taken from Codepen https://codepen.io/ainalem/pen/wvKOEMV
+    */
+    .nav__icon {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        padding: 0;
+        z-index: 99999;
+    }
+
+    .line {
+        fill: none;
+        stroke: white;
+        stroke-width: 6;
+        transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1), stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .line1 {
+        stroke-dasharray: 60 207;
+        stroke-width: 6;
+    }
+
+    .line2 {
+        stroke-dasharray: 60 60;
+        stroke-width: 6;
+    }
+
+    .line3 {
+        stroke-dasharray: 60 207;
+        stroke-width: 6;
+    }
+
+    .opened .line1 {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 6;
+    }
+
+    .opened .line2 {
+        stroke-dasharray: 1 60;
+        stroke-dashoffset: -30;
+        stroke-width: 6;
+    }
+
+    .opened .line3 {
+        stroke-dasharray: 90 207;
+        stroke-dashoffset: -134;
+        stroke-width: 6;
+    }
+
+    @@media screen and (min-width: 1070px) {
+        .nav__icon { display: none; }
+        .nav__list {
+            display: flex;
+            gap: 22px;
+            font-family: "IBM Plex Sans", sans-serif;
+            flex-direction: row;
+            position: initial;
+            top: initial;
+            left: initial;
+            height: auto;
+            width: auto;
+            justify-content: initial;
+            align-items: initial;
+            z-index: initial;
+            background: transparent;
+        }
+
+        .nav__list li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .nav__logo a {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            text-decoration: none;
+        }
+
+        .nav__logo a img {
+            width: 80px;
+            filter: invert(1);
+        }
+
+        .nav__logo a h1::before {
+            content: "|";
+            margin-right: 12px;
+        }
+
+        .nav__logo a h1 {
+            font-family: "IBM Plex Sans", sans-serif;
+            font-size: 24px;
+            color: white;
+        }
+
+        .form__title {
+            color: white;
+            font-family: "IBM Plex Sans";
+            font-size: 32px;
+            margin: 70px 100px;
+        }
     }
 </style>

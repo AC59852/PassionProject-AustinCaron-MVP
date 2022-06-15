@@ -181,6 +181,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnimeController.cs" />
     <Compile Include="Controllers\AnimeDataController.cs" />
@@ -210,6 +211,26 @@
     <Compile Include="Migrations\202206031933477_characterfont.cs" />
     <Compile Include="Migrations\202206031933477_characterfont.designer.cs">
       <DependentUpon>202206031933477_characterfont.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206040254467_finalDb.cs" />
+    <Compile Include="Migrations\202206040254467_finalDb.designer.cs">
+      <DependentUpon>202206040254467_finalDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206150400202_animeLogoUpdate.cs" />
+    <Compile Include="Migrations\202206150400202_animeLogoUpdate.designer.cs">
+      <DependentUpon>202206150400202_animeLogoUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206150429138_animeRevert.cs" />
+    <Compile Include="Migrations\202206150429138_animeRevert.designer.cs">
+      <DependentUpon>202206150429138_animeRevert.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206151835595_animeImageTest.cs" />
+    <Compile Include="Migrations\202206151835595_animeImageTest.designer.cs">
+      <DependentUpon>202206151835595_animeImageTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202206151850011_animeImageRevert.cs" />
+    <Compile Include="Migrations\202206151850011_animeImageRevert.designer.cs">
+      <DependentUpon>202206151850011_animeImageRevert.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -294,6 +315,7 @@
     <Content Include="Views\Anime\Error.cshtml" />
     <Content Include="Views\Anime\Edit.cshtml" />
     <Content Include="Views\Anime\DeleteConfirm.cshtml" />
+    <Content Include="Views\About\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -326,6 +348,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202206031933477_characterfont.resx">
       <DependentUpon>202206031933477_characterfont.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206040254467_finalDb.resx">
+      <DependentUpon>202206040254467_finalDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206150400202_animeLogoUpdate.resx">
+      <DependentUpon>202206150400202_animeLogoUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206150429138_animeRevert.resx">
+      <DependentUpon>202206150429138_animeRevert.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151835595_animeImageTest.resx">
+      <DependentUpon>202206151835595_animeImageTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206151850011_animeImageRevert.resx">
+      <DependentUpon>202206151850011_animeImageRevert.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
