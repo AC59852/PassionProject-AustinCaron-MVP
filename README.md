@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/AC59852/PassionProject-AustinCaron-MVP/des.aus.finalChanges/Content/Images/logo.svg"/>
+  <img src="https://raw.githubusercontent.com/AC59852/PassionProject-AustinCaron-MVP/des.aus.finalChanges/Content/Images/logo_inverted.svg"/>
 </div>
 
 <br />
