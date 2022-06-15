@@ -1,4 +1,4 @@
-![Toksan-Wiki](thumbnail.png)
+![Toksan-Wiki](https://raw.githubusercontent.com/AC59852/PassionProject-AustinCaron-MVP/des.aus.finalChanges/Content/Images/logo.svg)
 
 <br />
 
