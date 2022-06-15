@@ -1,5 +1,5 @@
 <div align="center">
-![Toksan-Wiki](https://raw.githubusercontent.com/AC59852/PassionProject-AustinCaron-MVP/des.aus.finalChanges/Content/Images/logo.svg)
+  ![Toksan-Wiki](https://raw.githubusercontent.com/AC59852/PassionProject-AustinCaron-MVP/des.aus.finalChanges/Content/Images/logo.svg)
 </div>
 
 <br />
